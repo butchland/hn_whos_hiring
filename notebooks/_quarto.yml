@@ -1,0 +1,26 @@
+project:
+  type: website
+
+website:
+  title: "Hacker News Who's Hiring"
+  navbar:
+    title: false
+    background: primary
+    
+  sidebar:
+    style: "docked"
+    contents:
+      - href: analysis.ipynb
+        text: Home
+        
+  page-footer:
+    border: false 
+    background: light
+    left: "Copyright 2022, Butch Landingin" 
+        
+format:
+  html:
+    theme: cosmo
+    css: styles.css
+    toc: true
+
