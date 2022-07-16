@@ -1,2 +1,8 @@
 dbt-core
 dbt-bigquery
+fastcore
+git+https://github.com/butchland/nbdbt.git
+jupyterlab
+jupyterlab-vim
+sqlfluff
+dbt-sugar
