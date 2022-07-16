@@ -1,0 +1,9 @@
+version: 2
+
+sources:
+  - name: public_datasets
+    database: bigquery-public-data
+    schema: hacker_news
+    tables:
+      - name: full_stories
+        identifier: full
