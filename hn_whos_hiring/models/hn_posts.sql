@@ -12,11 +12,14 @@ latest_stories as (
      url,
      submitter_id,
      text as content,
-     timestamp as submit_timestamp,
-     dead as post_status,  
+     timestamp as submit_timestamp, -- no need for time since timestamp == time
+     ifnull(dead,false) as dead,  
      score as post_score,
-     cast(parent as numeric) as parent_id,
+     cast(parent as int64) as parent_id,
      type as post_type,
+     ranking,
+     deleted,
+     descendants
    from stories
    order by submit_timestamp desc
 )
