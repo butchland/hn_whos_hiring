@@ -1,0 +1,1676 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.0.37">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Hacker News Who’s Hiring - Hacker News Analysis</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+span.underline{text-decoration: underline;}
+div.column{display: inline-block; vertical-align: top; width: 50%;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
+
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-sidebar docked nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+          <div id="quarto-search" class="" title="Search"></div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+    <div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title">Hacker News Analysis</h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation docked overflow-auto">
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./analysis.html" class="sidebar-item-text sidebar-link active">Home</a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#analysis" id="toc-analysis" class="nav-link active" data-scroll-target="#analysis">Analysis</a>
+  <ul class="collapse">
+  <li><a href="#raw-hn-source" id="toc-raw-hn-source" class="nav-link" data-scroll-target="#raw-hn-source">Raw HN Source</a></li>
+  <li><a href="#exploratory-data-analysis" id="toc-exploratory-data-analysis" class="nav-link" data-scroll-target="#exploratory-data-analysis">Exploratory Data Analysis</a></li>
+  <li><a href="#eda-questions" id="toc-eda-questions" class="nav-link" data-scroll-target="#eda-questions">EDA Questions</a></li>
+  </ul></li>
+  <li><a href="#standardization" id="toc-standardization" class="nav-link" data-scroll-target="#standardization">Standardization</a>
+  <ul class="collapse">
+  <li><a href="#notes-on-columns" id="toc-notes-on-columns" class="nav-link" data-scroll-target="#notes-on-columns">Notes on columns</a></li>
+  <li><a href="#more-questions" id="toc-more-questions" class="nav-link" data-scroll-target="#more-questions">More questions</a></li>
+  <li><a href="#related-to-whos-hiring" id="toc-related-to-whos-hiring" class="nav-link" data-scroll-target="#related-to-whos-hiring">Related to who’s hiring</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title d-none d-lg-block">Hacker News Analysis</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+    
+  </div>
+  
+
+</header>
+
+<blockquote class="blockquote">
+<p>A project to analyze hacker news stories using nbdbt</p>
+</blockquote>
+<section id="analysis" class="level2">
+<h2 class="anchored" data-anchor-id="analysis">Analysis</h2>
+<section id="raw-hn-source" class="level3">
+<h3 class="anchored" data-anchor-id="raw-hn-source">Raw HN Source</h3>
+<blockquote class="blockquote">
+<p>This is the raw data for all Hacker News posts</p>
+</blockquote>
+<p>It is sourced from the Google’s Big Query Public Datases and accessible as</p>
+<pre><code>bigquery-public-data.hacker_news.full</code></pre>
+<p>It seems to be updated on a regular basis <em>(see timestamp of latest post)</em>.</p>
+<div class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>dbt <span class="op">-</span>a raw_sources analyses<span class="op">/</span>raw_hn_source.sql</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>select <span class="op">*</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> {{ source(<span class="st">'public_datasets'</span>, <span class="st">'full_stories'</span>) }}</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>order by timestamp desc</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> raw_sources.ref(<span class="dv">10</span>)<span class="op">;</span> df.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="4">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>title</th>
+      <th>url</th>
+      <th>text</th>
+      <th>dead</th>
+      <th>by</th>
+      <th>score</th>
+      <th>time</th>
+      <th>timestamp</th>
+      <th>type</th>
+      <th>id</th>
+      <th>parent</th>
+      <th>descendants</th>
+      <th>ranking</th>
+      <th>deleted</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>None</td>
+      <td>None</td>
+      <td>Not sure where you got that from, but that&amp;#x2...</td>
+      <td>None</td>
+      <td>seanhunter</td>
+      <td>NaN</td>
+      <td>1658567561</td>
+      <td>2022-07-23 09:12:41+00:00</td>
+      <td>comment</td>
+      <td>32201677</td>
+      <td>32199341</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>None</td>
+      <td>None</td>
+      <td>It&amp;#x27;s a level of &amp;quot;professionalism&amp;quo...</td>
+      <td>None</td>
+      <td>foverzar</td>
+      <td>NaN</td>
+      <td>1658567556</td>
+      <td>2022-07-23 09:12:36+00:00</td>
+      <td>comment</td>
+      <td>32201676</td>
+      <td>32201587</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>None</td>
+      <td>None</td>
+      <td>&lt;a href="https:&amp;#x2F;&amp;#x2F;github.com&amp;#x2F;cyp...</td>
+      <td>None</td>
+      <td>DistrictFun7572</td>
+      <td>NaN</td>
+      <td>1658567547</td>
+      <td>2022-07-23 09:12:27+00:00</td>
+      <td>comment</td>
+      <td>32201675</td>
+      <td>32199828</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>None</td>
+      <td>None</td>
+      <td>Interesting, why isn&amp;#x27;t the moisture on wa...</td>
+      <td>None</td>
+      <td>badpun</td>
+      <td>NaN</td>
+      <td>1658567537</td>
+      <td>2022-07-23 09:12:17+00:00</td>
+      <td>comment</td>
+      <td>32201674</td>
+      <td>32201620</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>None</td>
+      <td>None</td>
+      <td>Why are comments that are critical to the inve...</td>
+      <td>None</td>
+      <td>lizardactivist</td>
+      <td>NaN</td>
+      <td>1658567512</td>
+      <td>2022-07-23 09:11:52+00:00</td>
+      <td>comment</td>
+      <td>32201673</td>
+      <td>32200371</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>None</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+<p>The column names have some descriptions, but might need to be standardized.</p>
+<div class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>df.columns.values</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="5">
+<pre><code>array(['title', 'url', 'text', 'dead', 'by', 'score', 'time', 'timestamp',
+       'type', 'id', 'parent', 'descendants', 'ranking', 'deleted'],
+      dtype=object)</code></pre>
+</div>
+</div>
+</section>
+<section id="exploratory-data-analysis" class="level3">
+<h3 class="anchored" data-anchor-id="exploratory-data-analysis">Exploratory Data Analysis</h3>
+<blockquote class="blockquote">
+<p>based on a sample size of 10 latest posts</p>
+</blockquote>
+<ul>
+<li>Check if time and timestamp contain the same info and one column can be eliminated</li>
+</ul>
+<div class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> datetime <span class="im">import</span> datetime</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'newtimestamp'</span>] <span class="op">=</span> pd.to_datetime(df[<span class="st">'time'</span>].astype(<span class="bu">float</span>), unit<span class="op">=</span><span class="st">'s'</span>,origin<span class="op">=</span><span class="st">'unix'</span>, utc<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-tags="[]" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>df[df[<span class="st">'newtimestamp'</span>] <span class="op">==</span> df[<span class="st">'timestamp'</span>]].<span class="bu">any</span>(axis<span class="op">=</span><span class="va">None</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="8">
+<pre><code>True</code></pre>
+</div>
+</div>
+<p>Looks like they are one and the same.</p>
+</section>
+<section id="eda-questions" class="level3">
+<h3 class="anchored" data-anchor-id="eda-questions">EDA Questions</h3>
+<ul>
+<li>Check total record count</li>
+</ul>
+<div class="cell" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>dbt <span class="op">-</span>a tot_rec analyses<span class="op">/</span>count_hn_source.sql</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>select count(<span class="op">*</span>) <span class="im">as</span> rec_count </span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> {{ source(<span class="st">'public_datasets'</span>, <span class="st">'full_stories'</span>) }}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>tot_rec_df <span class="op">=</span> tot_rec.ref()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="11">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>total_records <span class="op">=</span> tot_rec_df.iloc[<span class="dv">0</span>].rec_count</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="12">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>total_records</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="12">
+<pre><code>32201676</code></pre>
+</div>
+</div>
+<ul>
+<li>Check if any id, by, time, timestamp, type are null</li>
+</ul>
+<div class="cell" data-execution_count="13">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>dbt <span class="op">-</span>a null_field_counts analyses<span class="op">/</span>null_field_counts.sql</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> hn_posts</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="im">as</span> (</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>select</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>     `by` <span class="im">as</span> author,</span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>     <span class="op">*</span> <span class="cf">except</span>(`by`)</span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> {{ source(<span class="st">'public_datasets'</span>, <span class="st">'full_stories'</span>) }}</span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>select </span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a>   <span class="co">'id'</span> <span class="im">as</span> field, </span>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a>    count(<span class="op">*</span>) <span class="im">as</span> null_count,</span>
+<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> hn_posts</span>
+<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a>where <span class="bu">id</span> <span class="kw">is</span> null</span>
+<span id="cb15-14"><a href="#cb15-14" aria-hidden="true" tabindex="-1"></a>union <span class="bu">all</span></span>
+<span id="cb15-15"><a href="#cb15-15" aria-hidden="true" tabindex="-1"></a>select </span>
+<span id="cb15-16"><a href="#cb15-16" aria-hidden="true" tabindex="-1"></a>   <span class="co">'author'</span> <span class="im">as</span> field, </span>
+<span id="cb15-17"><a href="#cb15-17" aria-hidden="true" tabindex="-1"></a>    count(<span class="op">*</span>) <span class="im">as</span> null_count,</span>
+<span id="cb15-18"><a href="#cb15-18" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> hn_posts</span>
+<span id="cb15-19"><a href="#cb15-19" aria-hidden="true" tabindex="-1"></a>where author <span class="kw">is</span> null</span>
+<span id="cb15-20"><a href="#cb15-20" aria-hidden="true" tabindex="-1"></a>union <span class="bu">all</span></span>
+<span id="cb15-21"><a href="#cb15-21" aria-hidden="true" tabindex="-1"></a>select </span>
+<span id="cb15-22"><a href="#cb15-22" aria-hidden="true" tabindex="-1"></a>   <span class="co">'time'</span> <span class="im">as</span> field, </span>
+<span id="cb15-23"><a href="#cb15-23" aria-hidden="true" tabindex="-1"></a>    count(<span class="op">*</span>) <span class="im">as</span> null_count,</span>
+<span id="cb15-24"><a href="#cb15-24" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> hn_posts</span>
+<span id="cb15-25"><a href="#cb15-25" aria-hidden="true" tabindex="-1"></a>where time <span class="kw">is</span> null</span>
+<span id="cb15-26"><a href="#cb15-26" aria-hidden="true" tabindex="-1"></a>union <span class="bu">all</span></span>
+<span id="cb15-27"><a href="#cb15-27" aria-hidden="true" tabindex="-1"></a>select </span>
+<span id="cb15-28"><a href="#cb15-28" aria-hidden="true" tabindex="-1"></a>   <span class="co">'timestamp'</span> <span class="im">as</span> field, </span>
+<span id="cb15-29"><a href="#cb15-29" aria-hidden="true" tabindex="-1"></a>    count(<span class="op">*</span>) <span class="im">as</span> null_count,</span>
+<span id="cb15-30"><a href="#cb15-30" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> hn_posts</span>
+<span id="cb15-31"><a href="#cb15-31" aria-hidden="true" tabindex="-1"></a>where timestamp <span class="kw">is</span> null</span>
+<span id="cb15-32"><a href="#cb15-32" aria-hidden="true" tabindex="-1"></a>union <span class="bu">all</span></span>
+<span id="cb15-33"><a href="#cb15-33" aria-hidden="true" tabindex="-1"></a>select </span>
+<span id="cb15-34"><a href="#cb15-34" aria-hidden="true" tabindex="-1"></a>   <span class="co">'type'</span> <span class="im">as</span> field, </span>
+<span id="cb15-35"><a href="#cb15-35" aria-hidden="true" tabindex="-1"></a>    count(<span class="op">*</span>) <span class="im">as</span> null_count,</span>
+<span id="cb15-36"><a href="#cb15-36" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> hn_posts</span>
+<span id="cb15-37"><a href="#cb15-37" aria-hidden="true" tabindex="-1"></a>where <span class="bu">type</span> <span class="kw">is</span> null</span>
+<span id="cb15-38"><a href="#cb15-38" aria-hidden="true" tabindex="-1"></a>union <span class="bu">all</span></span>
+<span id="cb15-39"><a href="#cb15-39" aria-hidden="true" tabindex="-1"></a>select </span>
+<span id="cb15-40"><a href="#cb15-40" aria-hidden="true" tabindex="-1"></a>   <span class="co">'dead'</span> <span class="im">as</span> field, </span>
+<span id="cb15-41"><a href="#cb15-41" aria-hidden="true" tabindex="-1"></a>    count(<span class="op">*</span>) <span class="im">as</span> null_count,</span>
+<span id="cb15-42"><a href="#cb15-42" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> hn_posts</span>
+<span id="cb15-43"><a href="#cb15-43" aria-hidden="true" tabindex="-1"></a>where dead <span class="kw">is</span> null</span>
+<span id="cb15-44"><a href="#cb15-44" aria-hidden="true" tabindex="-1"></a></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="14">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>null_df <span class="op">=</span> null_field_counts.ref()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="15">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>null_df[<span class="st">'pct'</span>] <span class="op">=</span> null_df[<span class="st">'null_count'</span>]<span class="op">/</span>total_records</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="16">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>null_df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="16">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>field</th>
+      <th>null_count</th>
+      <th>pct</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>id</td>
+      <td>0</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>dead</td>
+      <td>30822943</td>
+      <td>0.957184</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>type</td>
+      <td>0</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>time</td>
+      <td>26818</td>
+      <td>0.000833</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>timestamp</td>
+      <td>26818</td>
+      <td>0.000833</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>author</td>
+      <td>955051</td>
+      <td>0.029658</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+<p>So <code>type</code> and <code>ids</code> all have values,<br>
+but there are entries with no <code>time</code> or <code>timestamp</code> (very small, less than 0.1 percent)<br>
+and there are entries with no <code>author</code> (around 3 percent)<br>
+and 96 percent have null values for the <code>dead</code> field.</p>
+<ul>
+<li>Check for unique values of <code>dead</code></li>
+</ul>
+<div class="cell" data-execution_count="17">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>dbt <span class="op">-</span>a dead_type_counts analyses<span class="op">/</span>dead_types_counts.sql</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>select dead <span class="im">as</span> dead_type, count(<span class="op">*</span>) <span class="im">as</span> dead_count</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> {{ source(<span class="st">'public_datasets'</span>, <span class="st">'full_stories'</span>) }}</span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>group by dead </span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>order by dead_count desc</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="18">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>dead_types_df <span class="op">=</span> dead_type_counts.ref()</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>dead_types_df[<span class="st">'pct'</span>] <span class="op">=</span> dead_types_df[<span class="st">'dead_count'</span>]<span class="op">/</span>total_records</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="19">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>dead_types_df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="19">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>dead_type</th>
+      <th>dead_count</th>
+      <th>pct</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>None</td>
+      <td>30822943</td>
+      <td>0.957184</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>True</td>
+      <td>1378733</td>
+      <td>0.042816</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+<ul>
+<li>Sample dead values</li>
+</ul>
+<div class="cell" data-execution_count="20">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>dbt <span class="op">-</span>a dead_rows analyses<span class="op">/</span>dead_rows.sql</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>select <span class="op">*</span> </span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> {{ source(<span class="st">'public_datasets'</span>,<span class="st">'full_stories'</span>) }}</span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>where dead <span class="kw">is</span> <span class="kw">not</span> null</span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>limit <span class="dv">10</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="21">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>dead_rows_df <span class="op">=</span> dead_rows.ref()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="22">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>dead_rows_df.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="22">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>title</th>
+      <th>url</th>
+      <th>text</th>
+      <th>dead</th>
+      <th>by</th>
+      <th>score</th>
+      <th>time</th>
+      <th>timestamp</th>
+      <th>type</th>
+      <th>id</th>
+      <th>parent</th>
+      <th>descendants</th>
+      <th>ranking</th>
+      <th>deleted</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>None</td>
+      <td>None</td>
+      <td>The square roots rule is very handy, and comes...</td>
+      <td>True</td>
+      <td>pfh</td>
+      <td>NaN</td>
+      <td>1453809675</td>
+      <td>2016-01-26 12:01:15+00:00</td>
+      <td>comment</td>
+      <td>10972974</td>
+      <td>10972482</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>None</td>
+      <td>None</td>
+      <td>All these things he listed (losing touch with ...</td>
+      <td>True</td>
+      <td>ithought</td>
+      <td>NaN</td>
+      <td>1487297280</td>
+      <td>2017-02-17 02:08:00+00:00</td>
+      <td>comment</td>
+      <td>13665377</td>
+      <td>13665032</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>None</td>
+      <td>None</td>
+      <td>Stop BSing us ALL previous climate disaster pr...</td>
+      <td>True</td>
+      <td>andred14</td>
+      <td>NaN</td>
+      <td>1634252135</td>
+      <td>2021-10-14 22:55:35+00:00</td>
+      <td>comment</td>
+      <td>28871313</td>
+      <td>28865033</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>None</td>
+      <td>None</td>
+      <td>We need a lot of customization in the output a...</td>
+      <td>True</td>
+      <td>Lower456</td>
+      <td>NaN</td>
+      <td>1520529475</td>
+      <td>2018-03-08 17:17:55+00:00</td>
+      <td>comment</td>
+      <td>16545848</td>
+      <td>16545574</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>None</td>
+      <td>None</td>
+      <td>The failing @nytimes.</td>
+      <td>True</td>
+      <td>monochromatic</td>
+      <td>NaN</td>
+      <td>1520529511</td>
+      <td>2018-03-08 17:18:31+00:00</td>
+      <td>comment</td>
+      <td>16545849</td>
+      <td>16545685</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>None</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="23">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>dbt <span class="op">-</span>a not_dead_rows analyses<span class="op">/</span>not_dead_rows.sql</span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>select <span class="op">*</span> </span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> {{ source(<span class="st">'public_datasets'</span>,<span class="st">'full_stories'</span>) }}</span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>where dead <span class="kw">is</span> null</span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>limit <span class="dv">10</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="24">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>not_dead_rows_df <span class="op">=</span> not_dead_rows.ref()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="25">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>not_dead_rows_df.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="25">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>title</th>
+      <th>url</th>
+      <th>text</th>
+      <th>dead</th>
+      <th>by</th>
+      <th>score</th>
+      <th>time</th>
+      <th>timestamp</th>
+      <th>type</th>
+      <th>id</th>
+      <th>parent</th>
+      <th>descendants</th>
+      <th>ranking</th>
+      <th>deleted</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>None</td>
+      <td>None</td>
+      <td>Let&amp;#x27;s say the string contains 100 0s and ...</td>
+      <td>None</td>
+      <td>dlubarov</td>
+      <td>NaN</td>
+      <td>1376497604</td>
+      <td>2013-08-14 16:26:44+00:00</td>
+      <td>comment</td>
+      <td>6212429</td>
+      <td>6211216</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>None</td>
+      <td>None</td>
+      <td>Eric Schmidt would feel right at home in priso...</td>
+      <td>None</td>
+      <td>logn</td>
+      <td>NaN</td>
+      <td>1376497595</td>
+      <td>2013-08-14 16:26:35+00:00</td>
+      <td>comment</td>
+      <td>6212428</td>
+      <td>6210198</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>None</td>
+      <td>None</td>
+      <td>What is the point of submitting a story behind...</td>
+      <td>None</td>
+      <td>Quequau</td>
+      <td>NaN</td>
+      <td>1420273930</td>
+      <td>2015-01-03 08:32:10+00:00</td>
+      <td>comment</td>
+      <td>8830251</td>
+      <td>8830214</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>None</td>
+      <td>None</td>
+      <td>But that can be the case for small hatchbacks ...</td>
+      <td>None</td>
+      <td>freehunter</td>
+      <td>NaN</td>
+      <td>1376497523</td>
+      <td>2013-08-14 16:25:23+00:00</td>
+      <td>comment</td>
+      <td>6212421</td>
+      <td>6212022</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>None</td>
+      <td>None</td>
+      <td>Just to be clear, the BSD license did not exis...</td>
+      <td>None</td>
+      <td>throwaway2048</td>
+      <td>NaN</td>
+      <td>1376497501</td>
+      <td>2013-08-14 16:25:01+00:00</td>
+      <td>comment</td>
+      <td>6212420</td>
+      <td>6212325</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>None</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+<ul>
+<li>Check for unique values of <code>type</code></li>
+</ul>
+<div class="cell" data-execution_count="26">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>dbt <span class="op">-</span>a type_counts analyses<span class="op">/</span>types_counts.sql</span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>select <span class="bu">type</span> <span class="im">as</span> <span class="bu">type</span>, count(<span class="op">*</span>) <span class="im">as</span> type_count</span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> {{ source(<span class="st">'public_datasets'</span>, <span class="st">'full_stories'</span>) }}</span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>group by <span class="bu">type</span> </span>
+<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a>order by type_count desc</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="27">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>types_df <span class="op">=</span> type_counts.ref()</span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>types_df[<span class="st">'pct'</span>] <span class="op">=</span> dead_types_df[<span class="st">'dead_count'</span>]<span class="op">/</span>total_records</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="28">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>types_df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="28">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>type</th>
+      <th>type_count</th>
+      <th>pct</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>comment</td>
+      <td>27599990</td>
+      <td>0.957184</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>story</td>
+      <td>4570471</td>
+      <td>0.042816</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>job</td>
+      <td>15567</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>pollopt</td>
+      <td>13668</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>poll</td>
+      <td>1980</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="standardization" class="level2">
+<h2 class="anchored" data-anchor-id="standardization">Standardization</h2>
+<blockquote class="blockquote">
+<p>Standardize column names and types so downstream transformations don’t have to deal with that</p>
+</blockquote>
+<div class="cell" data-execution_count="30">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>project_dir <span class="op">=</span> <span class="st">'../hn_whos_hiring'</span></span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>profiles_dir <span class="op">=</span> <span class="st">'~/.dbt'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="32">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> fal <span class="im">import</span> FalDbt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="33">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>faldbt <span class="op">=</span> FalDbt(project_dir,profiles_dir)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="35">
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>source <span class="op">=</span> faldbt.sources[<span class="dv">0</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="37">
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>source.schema</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="37">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>table_catalog</th>
+      <th>table_schema</th>
+      <th>table_name</th>
+      <th>column_name</th>
+      <th>ordinal_position</th>
+      <th>is_nullable</th>
+      <th>data_type</th>
+      <th>is_generated</th>
+      <th>generation_expression</th>
+      <th>is_stored</th>
+      <th>is_hidden</th>
+      <th>is_updatable</th>
+      <th>is_system_defined</th>
+      <th>is_partitioning_column</th>
+      <th>clustering_ordinal_position</th>
+      <th>collation_name</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>bigquery-public-data</td>
+      <td>hacker_news</td>
+      <td>full</td>
+      <td>title</td>
+      <td>1</td>
+      <td>YES</td>
+      <td>STRING</td>
+      <td>NEVER</td>
+      <td>None</td>
+      <td>None</td>
+      <td>NO</td>
+      <td>None</td>
+      <td>NO</td>
+      <td>NO</td>
+      <td>NaN</td>
+      <td>NULL</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>bigquery-public-data</td>
+      <td>hacker_news</td>
+      <td>full</td>
+      <td>url</td>
+      <td>2</td>
+      <td>YES</td>
+      <td>STRING</td>
+      <td>NEVER</td>
+      <td>None</td>
+      <td>None</td>
+      <td>NO</td>
+      <td>None</td>
+      <td>NO</td>
+      <td>NO</td>
+      <td>NaN</td>
+      <td>NULL</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>bigquery-public-data</td>
+      <td>hacker_news</td>
+      <td>full</td>
+      <td>text</td>
+      <td>3</td>
+      <td>YES</td>
+      <td>STRING</td>
+      <td>NEVER</td>
+      <td>None</td>
+      <td>None</td>
+      <td>NO</td>
+      <td>None</td>
+      <td>NO</td>
+      <td>NO</td>
+      <td>NaN</td>
+      <td>NULL</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>bigquery-public-data</td>
+      <td>hacker_news</td>
+      <td>full</td>
+      <td>dead</td>
+      <td>4</td>
+      <td>YES</td>
+      <td>BOOL</td>
+      <td>NEVER</td>
+      <td>None</td>
+      <td>None</td>
+      <td>NO</td>
+      <td>None</td>
+      <td>NO</td>
+      <td>NO</td>
+      <td>NaN</td>
+      <td>NULL</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>bigquery-public-data</td>
+      <td>hacker_news</td>
+      <td>full</td>
+      <td>by</td>
+      <td>5</td>
+      <td>YES</td>
+      <td>STRING</td>
+      <td>NEVER</td>
+      <td>None</td>
+      <td>None</td>
+      <td>NO</td>
+      <td>None</td>
+      <td>NO</td>
+      <td>NO</td>
+      <td>NaN</td>
+      <td>NULL</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>bigquery-public-data</td>
+      <td>hacker_news</td>
+      <td>full</td>
+      <td>score</td>
+      <td>6</td>
+      <td>YES</td>
+      <td>INT64</td>
+      <td>NEVER</td>
+      <td>None</td>
+      <td>None</td>
+      <td>NO</td>
+      <td>None</td>
+      <td>NO</td>
+      <td>NO</td>
+      <td>NaN</td>
+      <td>NULL</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>bigquery-public-data</td>
+      <td>hacker_news</td>
+      <td>full</td>
+      <td>time</td>
+      <td>7</td>
+      <td>YES</td>
+      <td>INT64</td>
+      <td>NEVER</td>
+      <td>None</td>
+      <td>None</td>
+      <td>NO</td>
+      <td>None</td>
+      <td>NO</td>
+      <td>NO</td>
+      <td>NaN</td>
+      <td>NULL</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>bigquery-public-data</td>
+      <td>hacker_news</td>
+      <td>full</td>
+      <td>timestamp</td>
+      <td>8</td>
+      <td>YES</td>
+      <td>TIMESTAMP</td>
+      <td>NEVER</td>
+      <td>None</td>
+      <td>None</td>
+      <td>NO</td>
+      <td>None</td>
+      <td>NO</td>
+      <td>NO</td>
+      <td>NaN</td>
+      <td>NULL</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>bigquery-public-data</td>
+      <td>hacker_news</td>
+      <td>full</td>
+      <td>type</td>
+      <td>9</td>
+      <td>YES</td>
+      <td>STRING</td>
+      <td>NEVER</td>
+      <td>None</td>
+      <td>None</td>
+      <td>NO</td>
+      <td>None</td>
+      <td>NO</td>
+      <td>NO</td>
+      <td>NaN</td>
+      <td>NULL</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>bigquery-public-data</td>
+      <td>hacker_news</td>
+      <td>full</td>
+      <td>id</td>
+      <td>10</td>
+      <td>YES</td>
+      <td>INT64</td>
+      <td>NEVER</td>
+      <td>None</td>
+      <td>None</td>
+      <td>NO</td>
+      <td>None</td>
+      <td>NO</td>
+      <td>NO</td>
+      <td>NaN</td>
+      <td>NULL</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>bigquery-public-data</td>
+      <td>hacker_news</td>
+      <td>full</td>
+      <td>parent</td>
+      <td>11</td>
+      <td>YES</td>
+      <td>INT64</td>
+      <td>NEVER</td>
+      <td>None</td>
+      <td>None</td>
+      <td>NO</td>
+      <td>None</td>
+      <td>NO</td>
+      <td>NO</td>
+      <td>NaN</td>
+      <td>NULL</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>bigquery-public-data</td>
+      <td>hacker_news</td>
+      <td>full</td>
+      <td>descendants</td>
+      <td>12</td>
+      <td>YES</td>
+      <td>INT64</td>
+      <td>NEVER</td>
+      <td>None</td>
+      <td>None</td>
+      <td>NO</td>
+      <td>None</td>
+      <td>NO</td>
+      <td>NO</td>
+      <td>NaN</td>
+      <td>NULL</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>bigquery-public-data</td>
+      <td>hacker_news</td>
+      <td>full</td>
+      <td>ranking</td>
+      <td>13</td>
+      <td>YES</td>
+      <td>INT64</td>
+      <td>NEVER</td>
+      <td>None</td>
+      <td>None</td>
+      <td>NO</td>
+      <td>None</td>
+      <td>NO</td>
+      <td>NO</td>
+      <td>NaN</td>
+      <td>NULL</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>bigquery-public-data</td>
+      <td>hacker_news</td>
+      <td>full</td>
+      <td>deleted</td>
+      <td>14</td>
+      <td>YES</td>
+      <td>BOOL</td>
+      <td>NEVER</td>
+      <td>None</td>
+      <td>None</td>
+      <td>NO</td>
+      <td>None</td>
+      <td>NO</td>
+      <td>NO</td>
+      <td>NaN</td>
+      <td>NULL</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="38">
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>dbt <span class="op">-</span>a hn_posts models<span class="op">/</span>hn_posts.sql</span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> stories <span class="im">as</span> (</span>
+<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a>  select</span>
+<span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a>    <span class="op">*</span> <span class="cf">except</span> (`by`),</span>
+<span id="cb36-5"><a href="#cb36-5" aria-hidden="true" tabindex="-1"></a>    `by` <span class="im">as</span> submitter_id,</span>
+<span id="cb36-6"><a href="#cb36-6" aria-hidden="true" tabindex="-1"></a>  <span class="im">from</span> {{ source(<span class="st">'public_datasets'</span>, <span class="st">'full_stories'</span>) }}</span>
+<span id="cb36-7"><a href="#cb36-7" aria-hidden="true" tabindex="-1"></a>),</span>
+<span id="cb36-8"><a href="#cb36-8" aria-hidden="true" tabindex="-1"></a>latest_stories <span class="im">as</span> (</span>
+<span id="cb36-9"><a href="#cb36-9" aria-hidden="true" tabindex="-1"></a>  select </span>
+<span id="cb36-10"><a href="#cb36-10" aria-hidden="true" tabindex="-1"></a>     <span class="bu">id</span> <span class="im">as</span> post_id, </span>
+<span id="cb36-11"><a href="#cb36-11" aria-hidden="true" tabindex="-1"></a>     title,</span>
+<span id="cb36-12"><a href="#cb36-12" aria-hidden="true" tabindex="-1"></a>     url,</span>
+<span id="cb36-13"><a href="#cb36-13" aria-hidden="true" tabindex="-1"></a>     submitter_id,</span>
+<span id="cb36-14"><a href="#cb36-14" aria-hidden="true" tabindex="-1"></a>     text <span class="im">as</span> content,</span>
+<span id="cb36-15"><a href="#cb36-15" aria-hidden="true" tabindex="-1"></a>     timestamp <span class="im">as</span> submit_timestamp, <span class="op">--</span> no need <span class="cf">for</span> time since timestamp <span class="op">==</span> time</span>
+<span id="cb36-16"><a href="#cb36-16" aria-hidden="true" tabindex="-1"></a>     ifnull(dead,false) <span class="im">as</span> dead,  </span>
+<span id="cb36-17"><a href="#cb36-17" aria-hidden="true" tabindex="-1"></a>     score <span class="im">as</span> post_score,</span>
+<span id="cb36-18"><a href="#cb36-18" aria-hidden="true" tabindex="-1"></a>     cast(parent <span class="im">as</span> int64) <span class="im">as</span> parent_id,</span>
+<span id="cb36-19"><a href="#cb36-19" aria-hidden="true" tabindex="-1"></a>     <span class="bu">type</span> <span class="im">as</span> post_type,</span>
+<span id="cb36-20"><a href="#cb36-20" aria-hidden="true" tabindex="-1"></a>     ranking,</span>
+<span id="cb36-21"><a href="#cb36-21" aria-hidden="true" tabindex="-1"></a>     deleted,</span>
+<span id="cb36-22"><a href="#cb36-22" aria-hidden="true" tabindex="-1"></a>     descendants</span>
+<span id="cb36-23"><a href="#cb36-23" aria-hidden="true" tabindex="-1"></a>   <span class="im">from</span> stories</span>
+<span id="cb36-24"><a href="#cb36-24" aria-hidden="true" tabindex="-1"></a>   order by submit_timestamp desc</span>
+<span id="cb36-25"><a href="#cb36-25" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb36-26"><a href="#cb36-26" aria-hidden="true" tabindex="-1"></a>select <span class="op">*</span></span>
+<span id="cb36-27"><a href="#cb36-27" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> latest_stories</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<section id="notes-on-columns" class="level3">
+<h3 class="anchored" data-anchor-id="notes-on-columns">Notes on columns</h3>
+<ul>
+<li>post_id = unique identifier</li>
+<li>title = title of the post (can be null if comment?)</li>
+<li>url = link to story</li>
+<li>submitter_id - user id of submitter</li>
+<li>content - body of post</li>
+<li>submit_timestamp - date/time submitted</li>
+<li>dead - ? not sure, but only 4.28 percent are dead, rest are none or false</li>
+<li>score - rating?</li>
+<li>parent_id - link to parent if response to article/comment?</li>
+<li>descendants - ? count of descendants?</li>
+<li>ranking - ?</li>
+<li>deleted - ?</li>
+<li>post_type = ‘story’,‘comment’, ‘job’,‘pollopt’, ‘poll’</li>
+</ul>
+</section>
+<section id="more-questions" class="level3">
+<h3 class="anchored" data-anchor-id="more-questions">More questions</h3>
+<ul>
+<li>meaning of dead</li>
+<li>what is ranking</li>
+<li>what is deleted</li>
+<li>is parent_id the link for a graph of article/comments/responses to comment?</li>
+<li>what is descendants</li>
+</ul>
+</section>
+<section id="related-to-whos-hiring" class="level3">
+<h3 class="anchored" data-anchor-id="related-to-whos-hiring">Related to who’s hiring</h3>
+<ul>
+<li>how to filter who’s hiring posts</li>
+<li>create a pipeline for text analysis</li>
+</ul>
+<div class="cell" data-execution_count="41">
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>model.schema</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="41">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>table_catalog</th>
+      <th>table_schema</th>
+      <th>table_name</th>
+      <th>column_name</th>
+      <th>ordinal_position</th>
+      <th>is_nullable</th>
+      <th>data_type</th>
+      <th>is_generated</th>
+      <th>generation_expression</th>
+      <th>is_stored</th>
+      <th>is_hidden</th>
+      <th>is_updatable</th>
+      <th>is_system_defined</th>
+      <th>is_partitioning_column</th>
+      <th>clustering_ordinal_position</th>
+      <th>collation_name</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>hn-whos-hiring</td>
+      <td>00dev</td>
+      <td>hn_posts</td>
+      <td>post_id</td>
+      <td>1</td>
+      <td>YES</td>
+      <td>INT64</td>
+      <td>NEVER</td>
+      <td>None</td>
+      <td>None</td>
+      <td>NO</td>
+      <td>None</td>
+      <td>NO</td>
+      <td>NO</td>
+      <td>NaN</td>
+      <td>NULL</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>hn-whos-hiring</td>
+      <td>00dev</td>
+      <td>hn_posts</td>
+      <td>title</td>
+      <td>2</td>
+      <td>YES</td>
+      <td>STRING</td>
+      <td>NEVER</td>
+      <td>None</td>
+      <td>None</td>
+      <td>NO</td>
+      <td>None</td>
+      <td>NO</td>
+      <td>NO</td>
+      <td>NaN</td>
+      <td>NULL</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>hn-whos-hiring</td>
+      <td>00dev</td>
+      <td>hn_posts</td>
+      <td>url</td>
+      <td>3</td>
+      <td>YES</td>
+      <td>STRING</td>
+      <td>NEVER</td>
+      <td>None</td>
+      <td>None</td>
+      <td>NO</td>
+      <td>None</td>
+      <td>NO</td>
+      <td>NO</td>
+      <td>NaN</td>
+      <td>NULL</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>hn-whos-hiring</td>
+      <td>00dev</td>
+      <td>hn_posts</td>
+      <td>submitter_id</td>
+      <td>4</td>
+      <td>YES</td>
+      <td>STRING</td>
+      <td>NEVER</td>
+      <td>None</td>
+      <td>None</td>
+      <td>NO</td>
+      <td>None</td>
+      <td>NO</td>
+      <td>NO</td>
+      <td>NaN</td>
+      <td>NULL</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>hn-whos-hiring</td>
+      <td>00dev</td>
+      <td>hn_posts</td>
+      <td>content</td>
+      <td>5</td>
+      <td>YES</td>
+      <td>STRING</td>
+      <td>NEVER</td>
+      <td>None</td>
+      <td>None</td>
+      <td>NO</td>
+      <td>None</td>
+      <td>NO</td>
+      <td>NO</td>
+      <td>NaN</td>
+      <td>NULL</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>hn-whos-hiring</td>
+      <td>00dev</td>
+      <td>hn_posts</td>
+      <td>submit_timestamp</td>
+      <td>6</td>
+      <td>YES</td>
+      <td>TIMESTAMP</td>
+      <td>NEVER</td>
+      <td>None</td>
+      <td>None</td>
+      <td>NO</td>
+      <td>None</td>
+      <td>NO</td>
+      <td>NO</td>
+      <td>NaN</td>
+      <td>NULL</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>hn-whos-hiring</td>
+      <td>00dev</td>
+      <td>hn_posts</td>
+      <td>dead</td>
+      <td>7</td>
+      <td>YES</td>
+      <td>BOOL</td>
+      <td>NEVER</td>
+      <td>None</td>
+      <td>None</td>
+      <td>NO</td>
+      <td>None</td>
+      <td>NO</td>
+      <td>NO</td>
+      <td>NaN</td>
+      <td>NULL</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>hn-whos-hiring</td>
+      <td>00dev</td>
+      <td>hn_posts</td>
+      <td>post_score</td>
+      <td>8</td>
+      <td>YES</td>
+      <td>INT64</td>
+      <td>NEVER</td>
+      <td>None</td>
+      <td>None</td>
+      <td>NO</td>
+      <td>None</td>
+      <td>NO</td>
+      <td>NO</td>
+      <td>NaN</td>
+      <td>NULL</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>hn-whos-hiring</td>
+      <td>00dev</td>
+      <td>hn_posts</td>
+      <td>parent_id</td>
+      <td>9</td>
+      <td>YES</td>
+      <td>INT64</td>
+      <td>NEVER</td>
+      <td>None</td>
+      <td>None</td>
+      <td>NO</td>
+      <td>None</td>
+      <td>NO</td>
+      <td>NO</td>
+      <td>NaN</td>
+      <td>NULL</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>hn-whos-hiring</td>
+      <td>00dev</td>
+      <td>hn_posts</td>
+      <td>post_type</td>
+      <td>10</td>
+      <td>YES</td>
+      <td>STRING</td>
+      <td>NEVER</td>
+      <td>None</td>
+      <td>None</td>
+      <td>NO</td>
+      <td>None</td>
+      <td>NO</td>
+      <td>NO</td>
+      <td>NaN</td>
+      <td>NULL</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>hn-whos-hiring</td>
+      <td>00dev</td>
+      <td>hn_posts</td>
+      <td>ranking</td>
+      <td>11</td>
+      <td>YES</td>
+      <td>INT64</td>
+      <td>NEVER</td>
+      <td>None</td>
+      <td>None</td>
+      <td>NO</td>
+      <td>None</td>
+      <td>NO</td>
+      <td>NO</td>
+      <td>NaN</td>
+      <td>NULL</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>hn-whos-hiring</td>
+      <td>00dev</td>
+      <td>hn_posts</td>
+      <td>deleted</td>
+      <td>12</td>
+      <td>YES</td>
+      <td>BOOL</td>
+      <td>NEVER</td>
+      <td>None</td>
+      <td>None</td>
+      <td>NO</td>
+      <td>None</td>
+      <td>NO</td>
+      <td>NO</td>
+      <td>NaN</td>
+      <td>NULL</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>hn-whos-hiring</td>
+      <td>00dev</td>
+      <td>hn_posts</td>
+      <td>descendants</td>
+      <td>13</td>
+      <td>YES</td>
+      <td>INT64</td>
+      <td>NEVER</td>
+      <td>None</td>
+      <td>None</td>
+      <td>NO</td>
+      <td>None</td>
+      <td>NO</td>
+      <td>NO</td>
+      <td>NaN</td>
+      <td>NULL</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="40">
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>model <span class="op">=</span> faldbt.list_models()[<span class="dv">0</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="39">
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="co"># %cd ../hn_whos_hiring</span></span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a><span class="co"># !dbt run -s models/hn_posts.sql</span></span>
+<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a><span class="co"># %cd ../notebooks</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>/home/butch2/play/experiments/hn_whos_hiring/notebooks
+14:14:39  Running with dbt=1.1.1
+14:14:39  Found 1 model, 0 tests, 0 snapshots, 7 analyses, 191 macros, 0 operations, 0 seed files, 1 source, 0 exposures, 0 metrics
+14:14:39  
+14:14:41  Concurrency: 1 threads (target='dev')
+14:14:41  
+14:14:41  1 of 1 START view model 00dev.hn_posts ......................................... [RUN]
+14:14:43  1 of 1 OK created view model 00dev.hn_posts .................................... [OK in 1.72s]
+14:14:43  
+14:14:43  Finished running 1 view model in 3.55s.
+14:14:43  
+14:14:43  Completed successfully
+14:14:43  
+14:14:43  Done. PASS=1 WARN=0 ERROR=0 SKIP=0 TOTAL=1
+/home/butch2/play/experiments/hn_whos_hiring/notebooks</code></pre>
+</div>
+</div>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    setTimeout(function() {
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      let href = ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+    tippyHover(ref, function() {
+      var popup = window.document.createElement('div');
+      cites.forEach(function(cite) {
+        var citeDiv = window.document.createElement('div');
+        citeDiv.classList.add('hanging-indent');
+        citeDiv.classList.add('csl-entry');
+        var biblioDiv = window.document.getElementById('ref-' + cite);
+        if (biblioDiv) {
+          citeDiv.innerHTML = biblioDiv.innerHTML;
+        }
+        popup.appendChild(citeDiv);
+      });
+      return popup.innerHTML;
+    });
+  }
+});
+</script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">Copyright 2022, Butch Landingin</div>   
+  </div>
+</footer>
+
+
+
+</body></html>
