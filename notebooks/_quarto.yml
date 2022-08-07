@@ -12,7 +12,10 @@ website:
     contents:
       - href: analysis.ipynb
         text: Home
+      - href: whos_hiring.ipynb
+        text: Who's Hiring
         
+
   page-footer:
     border: false 
     background: light
