@@ -41,4 +41,8 @@ select
     count(*) as null_count,
 from hn_posts
 where dead is null
-
+union all
+select 'descendants' as field,
+    count(*) as null_count
+from hn_posts
+where descendants is null
