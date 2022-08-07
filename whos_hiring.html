@@ -1,0 +1,1460 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.0.37">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Hacker News Who’s Hiring - Whos Hiring Analysis</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+span.underline{text-decoration: underline;}
+div.column{display: inline-block; vertical-align: top; width: 50%;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
+
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-sidebar docked nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+          <div id="quarto-search" class="" title="Search"></div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+    <div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title">Whos Hiring Analysis</h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation docked overflow-auto">
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./analysis.html" class="sidebar-item-text sidebar-link">Home</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./whos_hiring.html" class="sidebar-item-text sidebar-link active">Who’s Hiring</a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#analysis" id="toc-analysis" class="nav-link active" data-scroll-target="#analysis">Analysis</a>
+  <ul class="collapse">
+  <li><a href="#how-to-filter-only-articles-with-whos-hiring" id="toc-how-to-filter-only-articles-with-whos-hiring" class="nav-link" data-scroll-target="#how-to-filter-only-articles-with-whos-hiring">How to filter only articles with whos hiring</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title d-none d-lg-block">Whos Hiring Analysis</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+    
+  </div>
+  
+
+</header>
+
+<blockquote class="blockquote">
+<p>A project to analyze hacker news stories using nbdbt</p>
+</blockquote>
+<section id="analysis" class="level2">
+<h2 class="anchored" data-anchor-id="analysis">Analysis</h2>
+<section id="how-to-filter-only-articles-with-whos-hiring" class="level3">
+<h3 class="anchored" data-anchor-id="how-to-filter-only-articles-with-whos-hiring">How to filter only articles with whos hiring</h3>
+<div class="cell" data-execution_count="16">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>dbt <span class="op">-</span>a whos_hiring_articles analyses<span class="op">/</span>whos_hiring_articles.sql</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>select <span class="op">*</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> {{ ref(<span class="st">'hn_posts'</span>) }}</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>where post_type <span class="op">=</span> <span class="st">'story'</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a> <span class="kw">and</span>  lower(title) like <span class="st">'%ask hn: who is hiring%'</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a> <span class="kw">and</span>  submitter_id <span class="op">=</span> <span class="st">'whoishiring'</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>order by submit_timestamp desc</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="17">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>hiring_df <span class="op">=</span> whos_hiring_articles.ref()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="18">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>hiring_df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="18">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>post_id</th>
+      <th>title</th>
+      <th>url</th>
+      <th>submitter_id</th>
+      <th>content</th>
+      <th>submit_timestamp</th>
+      <th>dead</th>
+      <th>post_score</th>
+      <th>parent_id</th>
+      <th>post_type</th>
+      <th>ranking</th>
+      <th>deleted</th>
+      <th>descendants</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>31947297</td>
+      <td>Ask HN: Who is hiring? (July 2022)</td>
+      <td>None</td>
+      <td>whoishiring</td>
+      <td>Please state the location and include REMOTE, ...</td>
+      <td>2022-07-01 15:00:14+00:00</td>
+      <td>False</td>
+      <td>328</td>
+      <td>NaN</td>
+      <td>story</td>
+      <td>NaN</td>
+      <td>None</td>
+      <td>624.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>31582796</td>
+      <td>Ask HN: Who is hiring? (June 2022)</td>
+      <td>None</td>
+      <td>whoishiring</td>
+      <td>Please state the location and include REMOTE, ...</td>
+      <td>2022-06-01 15:01:51+00:00</td>
+      <td>False</td>
+      <td>390</td>
+      <td>NaN</td>
+      <td>story</td>
+      <td>NaN</td>
+      <td>None</td>
+      <td>862.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>31235968</td>
+      <td>Ask HN: Who is hiring? (May 2022)</td>
+      <td>None</td>
+      <td>whoishiring</td>
+      <td>Please state the location and include REMOTE, ...</td>
+      <td>2022-05-02 15:01:38+00:00</td>
+      <td>False</td>
+      <td>390</td>
+      <td>NaN</td>
+      <td>story</td>
+      <td>NaN</td>
+      <td>None</td>
+      <td>851.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>30878761</td>
+      <td>Ask HN: Who is hiring? (April 2022)</td>
+      <td>None</td>
+      <td>whoishiring</td>
+      <td>Please state the location and include REMOTE, ...</td>
+      <td>2022-04-01 15:02:05+00:00</td>
+      <td>False</td>
+      <td>264</td>
+      <td>NaN</td>
+      <td>story</td>
+      <td>NaN</td>
+      <td>None</td>
+      <td>805.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>30515750</td>
+      <td>Ask HN: Who is hiring? (March 2022)</td>
+      <td>None</td>
+      <td>whoishiring</td>
+      <td>Please state the location and include REMOTE, ...</td>
+      <td>2022-03-01 16:01:56+00:00</td>
+      <td>False</td>
+      <td>327</td>
+      <td>NaN</td>
+      <td>story</td>
+      <td>NaN</td>
+      <td>None</td>
+      <td>875.0</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>139</th>
+      <td>2949787</td>
+      <td>Ask HN: Who is Hiring? (September 2011)</td>
+      <td>None</td>
+      <td>whoishiring</td>
+      <td>Please lead with the location of the position ...</td>
+      <td>2011-09-01 12:55:49+00:00</td>
+      <td>False</td>
+      <td>249</td>
+      <td>NaN</td>
+      <td>story</td>
+      <td>NaN</td>
+      <td>None</td>
+      <td>232.0</td>
+    </tr>
+    <tr>
+      <th>140</th>
+      <td>2831646</td>
+      <td>Ask HN: Who is Hiring? (August 2011)</td>
+      <td>None</td>
+      <td>whoishiring</td>
+      <td>Please lead with the location of the position ...</td>
+      <td>2011-08-01 11:52:07+00:00</td>
+      <td>False</td>
+      <td>282</td>
+      <td>NaN</td>
+      <td>story</td>
+      <td>NaN</td>
+      <td>None</td>
+      <td>307.0</td>
+    </tr>
+    <tr>
+      <th>141</th>
+      <td>2607052</td>
+      <td>Ask HN: Who is Hiring? (June 2011)</td>
+      <td>None</td>
+      <td>whoishiring</td>
+      <td>Please lead with the location of the position ...</td>
+      <td>2011-06-01 13:00:55+00:00</td>
+      <td>False</td>
+      <td>326</td>
+      <td>NaN</td>
+      <td>story</td>
+      <td>NaN</td>
+      <td>None</td>
+      <td>329.0</td>
+    </tr>
+    <tr>
+      <th>142</th>
+      <td>2503204</td>
+      <td>Ask HN: Who is Hiring? (May 2011)</td>
+      <td>None</td>
+      <td>whoishiring</td>
+      <td>Please lead with the location of the position ...</td>
+      <td>2011-05-01 15:54:54+00:00</td>
+      <td>False</td>
+      <td>324</td>
+      <td>NaN</td>
+      <td>story</td>
+      <td>NaN</td>
+      <td>None</td>
+      <td>291.0</td>
+    </tr>
+    <tr>
+      <th>143</th>
+      <td>2396027</td>
+      <td>Ask HN: Who is Hiring? (April 2011)</td>
+      <td>None</td>
+      <td>whoishiring</td>
+      <td>Please lead with the location of the position ...</td>
+      <td>2011-04-01 13:11:26+00:00</td>
+      <td>False</td>
+      <td>285</td>
+      <td>NaN</td>
+      <td>story</td>
+      <td>NaN</td>
+      <td>None</td>
+      <td>295.0</td>
+    </tr>
+  </tbody>
+</table>
+<p>144 rows × 13 columns</p>
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="20">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>dbt <span class="op">-</span>a whos_hiring  models<span class="op">/</span>whos_hiring_articles.sql</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>select <span class="op">*</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> {{ ref(<span class="st">'hn_posts'</span>) }}</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>where post_type <span class="op">=</span> <span class="st">'story'</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a> <span class="kw">and</span>  lower(title) like <span class="st">'%ask hn: who is hiring%'</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a> <span class="kw">and</span>  submitter_id <span class="op">=</span> <span class="st">'whoishiring'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="21">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># %cd ../hn_whos_hiring</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="co"># !dbt run -s models/whos_hiring_articles.sql</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co"># %cd ../notebooks</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>/home/butch2/play/experiments/hn_whos_hiring/notebooks
+17:00:10  Running with dbt=1.1.1
+17:00:10  Found 2 models, 0 tests, 0 snapshots, 14 analyses, 191 macros, 0 operations, 0 seed files, 1 source, 0 exposures, 0 metrics
+17:00:10  
+17:00:12  Concurrency: 1 threads (target='dev')
+17:00:12  
+17:00:12  1 of 1 START view model 00dev.whos_hiring_articles ............................. [RUN]
+17:00:13  1 of 1 OK created view model 00dev.whos_hiring_articles ........................ [OK in 1.56s]
+17:00:13  
+17:00:13  Finished running 1 view model in 3.00s.
+17:00:13  
+17:00:13  Completed successfully
+17:00:13  
+17:00:13  Done. PASS=1 WARN=0 ERROR=0 SKIP=0 TOTAL=1
+/home/butch2/play/experiments/hn_whos_hiring/notebooks</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="25">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>dbt <span class="op">-</span>a job_posts analyses<span class="op">/</span>job_posts.sql</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> hiring <span class="im">as</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>( select post_id,</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  <span class="im">from</span> {{ ref(<span class="st">'whos_hiring_articles'</span>) }}</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>),</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>job_posts <span class="im">as</span> </span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>(</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>  select p.<span class="op">*</span></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>  <span class="im">from</span> {{ ref(<span class="st">'hn_posts'</span>) }} p</span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>  inner join hiring h</span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>  on p.parent_id <span class="op">=</span> h.post_id</span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>select <span class="op">*</span>  </span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> job_posts</span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>limit <span class="dv">50</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="26">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>jobs_df <span class="op">=</span> job_posts.ref()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="27">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>jobs_df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="27">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>post_id</th>
+      <th>title</th>
+      <th>url</th>
+      <th>submitter_id</th>
+      <th>content</th>
+      <th>submit_timestamp</th>
+      <th>dead</th>
+      <th>post_score</th>
+      <th>parent_id</th>
+      <th>post_type</th>
+      <th>ranking</th>
+      <th>deleted</th>
+      <th>descendants</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>14902492</td>
+      <td>None</td>
+      <td>None</td>
+      <td>cybus</td>
+      <td>Cybus.io | Hamburg, Germany | Node.JS Develope...</td>
+      <td>2017-08-01 16:30:43+00:00</td>
+      <td>False</td>
+      <td>NaN</td>
+      <td>14901313</td>
+      <td>comment</td>
+      <td>NaN</td>
+      <td>None</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>14902493</td>
+      <td>None</td>
+      <td>None</td>
+      <td>nickdavidhaynes</td>
+      <td>Automated Insights | Software engineer, applie...</td>
+      <td>2017-08-01 16:30:52+00:00</td>
+      <td>False</td>
+      <td>NaN</td>
+      <td>14901313</td>
+      <td>comment</td>
+      <td>NaN</td>
+      <td>None</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>14025779</td>
+      <td>None</td>
+      <td>None</td>
+      <td>bpp198</td>
+      <td>Thread.com (YC S12) | Software Engineer | Lond...</td>
+      <td>2017-04-03 18:44:18+00:00</td>
+      <td>False</td>
+      <td>NaN</td>
+      <td>14023198</td>
+      <td>comment</td>
+      <td>NaN</td>
+      <td>None</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>25645527</td>
+      <td>None</td>
+      <td>None</td>
+      <td>sdalezman</td>
+      <td>Intello | Senior Software Engineer &amp;#x2F; Prod...</td>
+      <td>2021-01-05 13:57:39+00:00</td>
+      <td>False</td>
+      <td>NaN</td>
+      <td>25632982</td>
+      <td>comment</td>
+      <td>NaN</td>
+      <td>None</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>11497114</td>
+      <td>None</td>
+      <td>None</td>
+      <td>morenoh149</td>
+      <td>CapsuleRx | New York City, NY NYC | full-time ...</td>
+      <td>2016-04-14 14:45:21+00:00</td>
+      <td>False</td>
+      <td>NaN</td>
+      <td>11405239</td>
+      <td>comment</td>
+      <td>NaN</td>
+      <td>None</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>21136425</td>
+      <td>None</td>
+      <td>None</td>
+      <td>arcfenix</td>
+      <td>Xfers.com |Backend Engineer (team lead) | Full...</td>
+      <td>2019-10-02 13:54:24+00:00</td>
+      <td>False</td>
+      <td>NaN</td>
+      <td>21126014</td>
+      <td>comment</td>
+      <td>NaN</td>
+      <td>None</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>28386447</td>
+      <td>None</td>
+      <td>None</td>
+      <td>claireatshelf</td>
+      <td>Shelf Engine | (&lt;a href="https:&amp;#x2F;&amp;#x2F;www...</td>
+      <td>2021-09-01 22:44:20+00:00</td>
+      <td>False</td>
+      <td>NaN</td>
+      <td>28380661</td>
+      <td>comment</td>
+      <td>NaN</td>
+      <td>None</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>8687784</td>
+      <td>None</td>
+      <td>None</td>
+      <td>mazerj</td>
+      <td>Location: Culver City (Los Angeles)\nPosition:...</td>
+      <td>2014-12-02 16:11:59+00:00</td>
+      <td>False</td>
+      <td>NaN</td>
+      <td>8681040</td>
+      <td>comment</td>
+      <td>NaN</td>
+      <td>None</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>8687789</td>
+      <td>None</td>
+      <td>None</td>
+      <td>summerville</td>
+      <td>Frontend Software Engineer @ Fleetio - &lt;a href...</td>
+      <td>2014-12-02 16:13:18+00:00</td>
+      <td>False</td>
+      <td>NaN</td>
+      <td>8681040</td>
+      <td>comment</td>
+      <td>NaN</td>
+      <td>None</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>6653441</td>
+      <td>None</td>
+      <td>None</td>
+      <td>ejdyksen</td>
+      <td>Mutually Human - Grand Rapids, Michigan&lt;p&gt;&lt;a h...</td>
+      <td>2013-11-01 13:18:46+00:00</td>
+      <td>False</td>
+      <td>NaN</td>
+      <td>6653437</td>
+      <td>comment</td>
+      <td>NaN</td>
+      <td>None</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>13842602</td>
+      <td>None</td>
+      <td>None</td>
+      <td>agerwick</td>
+      <td>SolarWinds | Austin, TX | Technical Lead Devel...</td>
+      <td>2017-03-10 22:09:22+00:00</td>
+      <td>False</td>
+      <td>NaN</td>
+      <td>13764728</td>
+      <td>comment</td>
+      <td>NaN</td>
+      <td>None</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>22688228</td>
+      <td>None</td>
+      <td>None</td>
+      <td>paigemck</td>
+      <td>Azlo|Engineering, DevOps, QA|Full-time|ONSITE ...</td>
+      <td>2020-03-25 20:29:01+00:00</td>
+      <td>False</td>
+      <td>NaN</td>
+      <td>22665398</td>
+      <td>comment</td>
+      <td>NaN</td>
+      <td>None</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>19080238</td>
+      <td>None</td>
+      <td>None</td>
+      <td>joshcarr</td>
+      <td>Aclima | Software Engineers, UI Engineers | Sa...</td>
+      <td>2019-02-04 20:22:55+00:00</td>
+      <td>False</td>
+      <td>NaN</td>
+      <td>19055166</td>
+      <td>comment</td>
+      <td>NaN</td>
+      <td>None</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>13083429</td>
+      <td>None</td>
+      <td>None</td>
+      <td>ni-recruit</td>
+      <td>Native Instruments GmbH | Python Developer, C+...</td>
+      <td>2016-12-01 20:55:55+00:00</td>
+      <td>False</td>
+      <td>NaN</td>
+      <td>13080280</td>
+      <td>comment</td>
+      <td>NaN</td>
+      <td>None</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>12204281</td>
+      <td>None</td>
+      <td>None</td>
+      <td>alex_minimax</td>
+      <td>Minimax Labs | London, UK | ONSITE | Java (ess...</td>
+      <td>2016-08-01 17:32:06+00:00</td>
+      <td>False</td>
+      <td>NaN</td>
+      <td>12202865</td>
+      <td>comment</td>
+      <td>NaN</td>
+      <td>None</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>12204284</td>
+      <td>None</td>
+      <td>None</td>
+      <td>loevborg</td>
+      <td>Fy | Berlin, Germany | Remote possible | freel...</td>
+      <td>2016-08-01 17:32:36+00:00</td>
+      <td>False</td>
+      <td>NaN</td>
+      <td>12202865</td>
+      <td>comment</td>
+      <td>NaN</td>
+      <td>None</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>8394627</td>
+      <td>None</td>
+      <td>None</td>
+      <td>pointpth</td>
+      <td>Pointpath Studios - Brooklyn, NY - &lt;a href="ht...</td>
+      <td>2014-10-01 14:34:15+00:00</td>
+      <td>False</td>
+      <td>NaN</td>
+      <td>8394339</td>
+      <td>comment</td>
+      <td>NaN</td>
+      <td>None</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>26304720</td>
+      <td>None</td>
+      <td>None</td>
+      <td>eggie5</td>
+      <td>Grubhub (grubhub.com) | ML Engineer | Full-tim...</td>
+      <td>2021-03-01 16:47:35+00:00</td>
+      <td>False</td>
+      <td>NaN</td>
+      <td>26304051</td>
+      <td>comment</td>
+      <td>NaN</td>
+      <td>None</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>18</th>
+      <td>15602864</td>
+      <td>None</td>
+      <td>None</td>
+      <td>Sambdala</td>
+      <td>Qadre | London, GB | Full Time &amp;amp; Contract ...</td>
+      <td>2017-11-01 16:29:09+00:00</td>
+      <td>False</td>
+      <td>NaN</td>
+      <td>15601729</td>
+      <td>comment</td>
+      <td>NaN</td>
+      <td>None</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>15602863</td>
+      <td>None</td>
+      <td>None</td>
+      <td>incrementalist</td>
+      <td>Citymapper | Android &amp;amp; iOS Mobile Engineer...</td>
+      <td>2017-11-01 16:29:00+00:00</td>
+      <td>False</td>
+      <td>NaN</td>
+      <td>15601729</td>
+      <td>comment</td>
+      <td>NaN</td>
+      <td>None</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>20</th>
+      <td>22016288</td>
+      <td>None</td>
+      <td>None</td>
+      <td>sammons</td>
+      <td>Skytap | Multiple Positions | Seattle, WA | ON...</td>
+      <td>2020-01-10 22:27:57+00:00</td>
+      <td>False</td>
+      <td>NaN</td>
+      <td>21936440</td>
+      <td>comment</td>
+      <td>NaN</td>
+      <td>None</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>21</th>
+      <td>20084209</td>
+      <td>None</td>
+      <td>None</td>
+      <td>webjunkie</td>
+      <td>Artory | Senior Software Engineer | Berlin, Ge...</td>
+      <td>2019-06-03 15:29:33+00:00</td>
+      <td>False</td>
+      <td>NaN</td>
+      <td>20083795</td>
+      <td>comment</td>
+      <td>NaN</td>
+      <td>None</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>22</th>
+      <td>20084208</td>
+      <td>None</td>
+      <td>None</td>
+      <td>jeeshan</td>
+      <td>Commure, Inc. | San Francisco, CA or Boston, M...</td>
+      <td>2019-06-03 15:29:31+00:00</td>
+      <td>False</td>
+      <td>NaN</td>
+      <td>20083795</td>
+      <td>comment</td>
+      <td>NaN</td>
+      <td>None</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>23</th>
+      <td>20084200</td>
+      <td>None</td>
+      <td>None</td>
+      <td>ellisd</td>
+      <td>Nuna (&lt;a href="https:&amp;#x2F;&amp;#x2F;www.nuna.com"...</td>
+      <td>2019-06-03 15:29:12+00:00</td>
+      <td>False</td>
+      <td>NaN</td>
+      <td>20083795</td>
+      <td>comment</td>
+      <td>NaN</td>
+      <td>None</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>24</th>
+      <td>20084203</td>
+      <td>None</td>
+      <td>None</td>
+      <td>rezendi</td>
+      <td>SEEKING FREELANCERS&amp;#x2F;EMPLOYEES - NYC prefe...</td>
+      <td>2019-06-03 15:29:21+00:00</td>
+      <td>False</td>
+      <td>NaN</td>
+      <td>20083795</td>
+      <td>comment</td>
+      <td>NaN</td>
+      <td>None</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>25</th>
+      <td>20084207</td>
+      <td>None</td>
+      <td>None</td>
+      <td>SmartTix</td>
+      <td>SmartTix | VP Engineering&amp;#x2F;Co-founder (Blo...</td>
+      <td>2019-06-03 15:29:28+00:00</td>
+      <td>False</td>
+      <td>NaN</td>
+      <td>20083795</td>
+      <td>comment</td>
+      <td>NaN</td>
+      <td>None</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>26</th>
+      <td>30896130</td>
+      <td>None</td>
+      <td>None</td>
+      <td>webjunkie</td>
+      <td>Artory | JavaScript Data Engineer | Berlin | F...</td>
+      <td>2022-04-03 11:42:19+00:00</td>
+      <td>False</td>
+      <td>NaN</td>
+      <td>30878761</td>
+      <td>comment</td>
+      <td>NaN</td>
+      <td>None</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>27</th>
+      <td>11845849</td>
+      <td>None</td>
+      <td>None</td>
+      <td>FUB</td>
+      <td>Follow Up Boss | Full-time | San Francisco or ...</td>
+      <td>2016-06-06 11:11:50+00:00</td>
+      <td>False</td>
+      <td>NaN</td>
+      <td>11814828</td>
+      <td>comment</td>
+      <td>NaN</td>
+      <td>None</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>28</th>
+      <td>27055259</td>
+      <td>None</td>
+      <td>None</td>
+      <td>join_alma</td>
+      <td>Alma | Engineering &amp;amp; Product | Healthtech ...</td>
+      <td>2021-05-05 20:26:30+00:00</td>
+      <td>False</td>
+      <td>NaN</td>
+      <td>27025922</td>
+      <td>comment</td>
+      <td>NaN</td>
+      <td>None</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>29</th>
+      <td>28719797</td>
+      <td>None</td>
+      <td>None</td>
+      <td>siggi</td>
+      <td>BuildBuddy (YC W20) | Engineering | Remote, Ba...</td>
+      <td>2021-10-01 15:35:11+00:00</td>
+      <td>False</td>
+      <td>NaN</td>
+      <td>28719320</td>
+      <td>comment</td>
+      <td>NaN</td>
+      <td>None</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>30</th>
+      <td>27703186</td>
+      <td>None</td>
+      <td>None</td>
+      <td>ksowocki</td>
+      <td>Gitcoin ( &lt;a href="https:&amp;#x2F;&amp;#x2F;gitcoin.c...</td>
+      <td>2021-07-01 19:10:00+00:00</td>
+      <td>False</td>
+      <td>NaN</td>
+      <td>27699704</td>
+      <td>comment</td>
+      <td>NaN</td>
+      <td>None</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>31</th>
+      <td>27703181</td>
+      <td>None</td>
+      <td>None</td>
+      <td>htormey</td>
+      <td>I am an EM at Coinbase hiring for the borrow &amp;...</td>
+      <td>2021-07-01 19:09:48+00:00</td>
+      <td>False</td>
+      <td>NaN</td>
+      <td>27699704</td>
+      <td>comment</td>
+      <td>NaN</td>
+      <td>None</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>32</th>
+      <td>17442263</td>
+      <td>None</td>
+      <td>None</td>
+      <td>caust1c</td>
+      <td>Segment | Engineering | San Francisco, CA | Fu...</td>
+      <td>2018-07-02 15:06:42+00:00</td>
+      <td>False</td>
+      <td>NaN</td>
+      <td>17442187</td>
+      <td>comment</td>
+      <td>NaN</td>
+      <td>None</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>33</th>
+      <td>8681415</td>
+      <td>None</td>
+      <td>None</td>
+      <td>sam</td>
+      <td>Octopart - New York, NY - &lt;a href="http://octo...</td>
+      <td>2014-12-01 15:14:55+00:00</td>
+      <td>False</td>
+      <td>NaN</td>
+      <td>8681040</td>
+      <td>comment</td>
+      <td>NaN</td>
+      <td>None</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>34</th>
+      <td>12204795</td>
+      <td>None</td>
+      <td>None</td>
+      <td>lespider</td>
+      <td>tCell.io | San Francisco, Stockholm | Onsite&lt;p...</td>
+      <td>2016-08-01 18:38:17+00:00</td>
+      <td>False</td>
+      <td>NaN</td>
+      <td>12202865</td>
+      <td>comment</td>
+      <td>NaN</td>
+      <td>None</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>35</th>
+      <td>18807159</td>
+      <td>None</td>
+      <td>None</td>
+      <td>acconrad</td>
+      <td>Indigo Agriculture | Back-end, front-end, DevO...</td>
+      <td>2019-01-02 16:13:30+00:00</td>
+      <td>False</td>
+      <td>NaN</td>
+      <td>18807017</td>
+      <td>comment</td>
+      <td>NaN</td>
+      <td>None</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>36</th>
+      <td>19550389</td>
+      <td>None</td>
+      <td>None</td>
+      <td>lyravega</td>
+      <td>Lyra Health | Software Engineer: Data Infrastr...</td>
+      <td>2019-04-02 02:03:13+00:00</td>
+      <td>False</td>
+      <td>NaN</td>
+      <td>19543940</td>
+      <td>comment</td>
+      <td>NaN</td>
+      <td>None</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>37</th>
+      <td>22749710</td>
+      <td>None</td>
+      <td>None</td>
+      <td>alasano</td>
+      <td>Coveo | Software Developer | Full-Time | Remot...</td>
+      <td>2020-04-01 15:32:24+00:00</td>
+      <td>False</td>
+      <td>NaN</td>
+      <td>22749308</td>
+      <td>comment</td>
+      <td>NaN</td>
+      <td>None</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>38</th>
+      <td>22749716</td>
+      <td>None</td>
+      <td>None</td>
+      <td>rynobax</td>
+      <td>Trellis | Atlanta, GA | Software Developers | ...</td>
+      <td>2020-04-01 15:32:35+00:00</td>
+      <td>False</td>
+      <td>NaN</td>
+      <td>22749308</td>
+      <td>comment</td>
+      <td>NaN</td>
+      <td>None</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>39</th>
+      <td>22226903</td>
+      <td>None</td>
+      <td>None</td>
+      <td>ramimac</td>
+      <td>VSR (part of NCC Group) | Security Consultant...</td>
+      <td>2020-02-03 17:59:36+00:00</td>
+      <td>False</td>
+      <td>NaN</td>
+      <td>22225314</td>
+      <td>comment</td>
+      <td>NaN</td>
+      <td>None</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>40</th>
+      <td>22226906</td>
+      <td>None</td>
+      <td>None</td>
+      <td>aktals</td>
+      <td>FIVETRAN (&lt;a href="https:&amp;#x2F;&amp;#x2F;www.fivet...</td>
+      <td>2020-02-03 17:59:54+00:00</td>
+      <td>False</td>
+      <td>NaN</td>
+      <td>22225314</td>
+      <td>comment</td>
+      <td>NaN</td>
+      <td>None</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>41</th>
+      <td>31948807</td>
+      <td>None</td>
+      <td>None</td>
+      <td>samcheng</td>
+      <td>RINSE | REMOTE or San Francisco, New York, Los...</td>
+      <td>2022-07-01 16:25:10+00:00</td>
+      <td>False</td>
+      <td>NaN</td>
+      <td>31947297</td>
+      <td>comment</td>
+      <td>NaN</td>
+      <td>None</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>42</th>
+      <td>12706467</td>
+      <td>None</td>
+      <td>None</td>
+      <td>cstuder</td>
+      <td>Meteotest | Berne, Switzerland | ONSITE | Full...</td>
+      <td>2016-10-14 06:41:24+00:00</td>
+      <td>False</td>
+      <td>NaN</td>
+      <td>12627852</td>
+      <td>comment</td>
+      <td>NaN</td>
+      <td>None</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>43</th>
+      <td>28041066</td>
+      <td>None</td>
+      <td>None</td>
+      <td>davy</td>
+      <td>Hasura | Remote Distributed Team | hasura.io&lt;p...</td>
+      <td>2021-08-02 18:53:38+00:00</td>
+      <td>False</td>
+      <td>NaN</td>
+      <td>28037366</td>
+      <td>comment</td>
+      <td>NaN</td>
+      <td>None</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>44</th>
+      <td>3786825</td>
+      <td>None</td>
+      <td>None</td>
+      <td>chomchom</td>
+      <td>Novoda (www.novoda.com) , London, UK - \nAndro...</td>
+      <td>2012-04-02 07:50:34+00:00</td>
+      <td>False</td>
+      <td>NaN</td>
+      <td>3783657</td>
+      <td>comment</td>
+      <td>NaN</td>
+      <td>None</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>45</th>
+      <td>20859720</td>
+      <td>None</td>
+      <td>None</td>
+      <td>antkennedy</td>
+      <td>Gapsquare | Full Stack Engineer(s) | ONSITE | ...</td>
+      <td>2019-09-02 15:34:52+00:00</td>
+      <td>False</td>
+      <td>NaN</td>
+      <td>20859700</td>
+      <td>comment</td>
+      <td>NaN</td>
+      <td>None</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>46</th>
+      <td>20859729</td>
+      <td>None</td>
+      <td>None</td>
+      <td>asavoy</td>
+      <td>Mathspace &lt;a href="https:&amp;#x2F;&amp;#x2F;mathspace...</td>
+      <td>2019-09-02 15:36:04+00:00</td>
+      <td>False</td>
+      <td>NaN</td>
+      <td>20859700</td>
+      <td>comment</td>
+      <td>NaN</td>
+      <td>None</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>47</th>
+      <td>21127498</td>
+      <td>None</td>
+      <td>None</td>
+      <td>jeffnappi</td>
+      <td>ClearVoice | Marketing Web Developer | Phoenix...</td>
+      <td>2019-10-01 16:41:30+00:00</td>
+      <td>False</td>
+      <td>NaN</td>
+      <td>21126014</td>
+      <td>comment</td>
+      <td>NaN</td>
+      <td>None</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>48</th>
+      <td>19288086</td>
+      <td>None</td>
+      <td>None</td>
+      <td>freyfogle</td>
+      <td>Abi Global Health | Barcelona | Onsite | Full-...</td>
+      <td>2019-03-02 07:30:27+00:00</td>
+      <td>False</td>
+      <td>NaN</td>
+      <td>19281834</td>
+      <td>comment</td>
+      <td>NaN</td>
+      <td>None</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>49</th>
+      <td>29782367</td>
+      <td>None</td>
+      <td>None</td>
+      <td>ninjaranter</td>
+      <td>Course Hero | Redwood City, CA | Senior Engine...</td>
+      <td>2022-01-03 16:22:27+00:00</td>
+      <td>False</td>
+      <td>NaN</td>
+      <td>29782099</td>
+      <td>comment</td>
+      <td>NaN</td>
+      <td>None</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="28">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>jobs_df.iloc[<span class="dv">0</span>].content</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="28">
+<pre><code>'Cybus.io | Hamburg, Germany | Node.JS Developer (m&amp;#x2F;f) | Full time | ONSITE\nCybus is looking for a motivated Senior Node.js Developer (m&amp;#x2F;f). You will build a robust, modular system to deliver flexible solutions to our customers. Drive our middleware forward in terms of scalability and reliability and ensure that our system stays cutting-edge while keeping high quality standards.\nYou ideally if you enjoy building awesome applications from scratch. You&amp;#x27;re excellent knowledge of best practices in JavaScript and a deep understanding of Test Driven Development &amp;amp; Clean Code.\nWhat We offer \n- a young &amp;amp; motivated tech company.\n- startup opportunities, atmosphere and latest industry gadgets\n- “Family first” policy – flexible working hours and spare time\n- fresh fruits, juice and fantastic coffee.\n- regular team events and relaxed after-work activities.\n- attractive additional services\n&lt;a href="https:&amp;#x2F;&amp;#x2F;www.cybus.io&amp;#x2F;de&amp;#x2F;tech-jobs-de&amp;#x2F;senior-node-js-entwickler-mw&amp;#x2F;" rel="nofollow"&gt;https:&amp;#x2F;&amp;#x2F;www.cybus.io&amp;#x2F;de&amp;#x2F;tech-jobs-de&amp;#x2F;senior-node-js-entwickl...&lt;/a&gt;\nContact: career[at]cybus.io Please send email with &amp;#x27;Hacker News&amp;#x27; in subject line.'</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="29">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>dbt <span class="op">-</span>a job_posts models<span class="op">/</span>job_posts.sql</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> hiring <span class="im">as</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>( select post_id,</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>  <span class="im">from</span> {{ ref(<span class="st">'whos_hiring_articles'</span>) }}</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>),</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>job_posts <span class="im">as</span> </span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>(</span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>  select p.<span class="op">*</span></span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>  <span class="im">from</span> {{ ref(<span class="st">'hn_posts'</span>) }} p</span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>  inner join hiring h</span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>  on p.parent_id <span class="op">=</span> h.post_id</span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a>select <span class="op">*</span>  </span>
+<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> job_posts</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="30">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># %cd ../hn_whos_hiring</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="co"># !dbt run -s models/job_posts.sql</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="co"># %cd ../notebooks</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>/home/butch2/play/experiments/hn_whos_hiring/notebooks
+17:13:20  Running with dbt=1.1.1
+17:13:20  Found 3 models, 0 tests, 0 snapshots, 15 analyses, 191 macros, 0 operations, 0 seed files, 1 source, 0 exposures, 0 metrics
+17:13:20  
+17:13:21  Concurrency: 1 threads (target='dev')
+17:13:21  
+17:13:21  1 of 1 START view model 00dev.job_posts ........................................ [RUN]
+17:13:23  1 of 1 OK created view model 00dev.job_posts ................................... [OK in 1.52s]
+17:13:23  
+17:13:23  Finished running 1 view model in 2.91s.
+17:13:23  
+17:13:23  Completed successfully
+17:13:23  
+17:13:23  Done. PASS=1 WARN=0 ERROR=0 SKIP=0 TOTAL=1
+/home/butch2/play/experiments/hn_whos_hiring/notebooks</code></pre>
+</div>
+</div>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    setTimeout(function() {
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      let href = ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+    tippyHover(ref, function() {
+      var popup = window.document.createElement('div');
+      cites.forEach(function(cite) {
+        var citeDiv = window.document.createElement('div');
+        citeDiv.classList.add('hanging-indent');
+        citeDiv.classList.add('csl-entry');
+        var biblioDiv = window.document.getElementById('ref-' + cite);
+        if (biblioDiv) {
+          citeDiv.innerHTML = biblioDiv.innerHTML;
+        }
+        popup.appendChild(citeDiv);
+      });
+      return popup.innerHTML;
+    });
+  }
+});
+</script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">Copyright 2022, Butch Landingin</div>   
+  </div>
+</footer>
+
+
+
+</body></html>
